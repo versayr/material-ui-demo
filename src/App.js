@@ -8,6 +8,7 @@ import {
   Button, 
   TextField
 } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
 
 class App extends Component {
   render() {
@@ -37,9 +38,9 @@ class App extends Component {
             <Button
               type="submit"
               color="primary"
-              variant="raised"
+              variant="fab"
             >
-              Add Task
+              <AddIcon />
             </Button>
           </form>
         </Paper>
