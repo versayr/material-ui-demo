@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
-import AddIcon from '@material-ui/icons/Add';
-import DeleteIcon from '@material-ui/icons/Delete';
+import React, { Component }                 from 'react';
+import AddIcon                              from '@material-ui/icons/Add';
+import DeleteIcon                           from '@material-ui/icons/Delete';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { 
   Paper, 
   AppBar,
+  FormControl,
   Typography,
-  Button, 
-  TextField,
+  Input,
+  InputAdornment,
   List,
   ListItem,
   ListItemIcon,
@@ -18,7 +19,7 @@ import './App.css';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#02B087'
+      main: '#02B087',
     },
   },
 });
@@ -27,7 +28,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todo: ['first task', 'second task']
+      todo: ['first task', 'second task', 'another task']
     };
   }
 
@@ -46,17 +47,14 @@ class App extends Component {
               </Typography>
             </AppBar>
             <form>
-              <TextField
-                autoFocus="true"
-              />
-              <Button
-                type="submit"
-                color="primary"
-                variant="fab"
-                mini
+              <FormControl
+                fullWidth
               >
-                <AddIcon />
-              </Button>
+                <Input
+                  autoFocus="true"
+                  endAdornment={<InputAdornment position="end"><AddIcon /></InputAdornment>}
+                />
+              </FormControl>
             </form>
             <List>
               <ListItem button>
@@ -67,6 +65,12 @@ class App extends Component {
               </ListItem>
               <ListItem button>
                 <ListItemText primary={this.state.todo[1]} />
+                <ListItemIcon>
+                  <DeleteIcon />
+                </ListItemIcon>
+              </ListItem>
+              <ListItem button>
+                <ListItemText primary={this.state.todo[2]} />
                 <ListItemIcon>
                   <DeleteIcon />
                 </ListItemIcon>
